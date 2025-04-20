@@ -11,6 +11,18 @@
             color: #fff;
             line-height: 1.6;
             text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0a0a2a 0%, #1f1f5c 100%);
+            min-height: 100vh;
+        }
+        
+        /* Responsive container */
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
         }
         
         h1, h2, h3 {
@@ -26,6 +38,8 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            margin-top: 0;
+            padding-top: 1rem;
         }
         
         h2 {
@@ -46,7 +60,7 @@
         }
         
         li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             position: relative;
             padding-left: 1.5rem;
         }
@@ -103,50 +117,113 @@
         .glass-container {
             background: linear-gradient(to bottom, #0a0a2a, #0f0245);
             backdrop-filter: blur(10px);
-            border-radius: 0.5em;
-            box-shadow: 0 8px 15px rgba(255, 60, 0, 0.6);
+            border-radius: 1rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            margin: 2rem auto;
+            max-width: 1400px;
         }
 
         .header {
-            flex-direction: no-wrap;
-            align-items: justify;
-            justify-content: space-around;
+            padding: 1.5rem;
+            background-image: linear-gradient(150deg, #000051 0%, #1a1a5a 100%);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 204, 0, 0.3);
+        }
+
+        /* Modern Navigation */
+        .nav-glass {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .nav-glass ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+        }
+        
+        .nav-glass li {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .nav-glass li:before {
+            content: none;
         }
 
         /* More vibrant tab buttons */
         .glow-btn {
-            background-color: #ffbe8;
+            background-color: #ffbe88;
             box-shadow: 0 6px 8px rgba(255, 2, 0, 0.6);
+            padding: 0.7rem 1.2rem;
+            border: none;
+            border-radius: 2rem;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .glow-btn:hover {
+            opacity: 1;
+            transform: translateY(-3px);
         }
 
         .glow-btn.active {
-            animation: glow-pulse 2s infinite;
+            animation: glow-pulse 2s infinite alternate;
+            opacity: 1;
         }
 
         @keyframes glow-pulse {
             0% {
-                transform: scale(1);
+                box-shadow: 0 0 5px rgba(255, 204, 0, 0.6);
             }
             100% {
-                transform: scale(1.1);
+                box-shadow: 0 0 20px rgba(255, 204, 0, 0.9);
             }
         }
 
         /* 3D effects for cards */
         .glass-card {
             transform: perspective(1000px) rotateY(0deg);
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             transition: transform 0.5s, box-shadow 0.5s;
-            padding: 1.5rem;
+            padding: 2.5rem;
+            margin: 1.5rem;
             color: #fff;
             background: rgba(0,0,30,0.7) !important;
             backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .glass-card:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            transform: perspective(1000px) rotateY(2deg) translateY(-5px);
         }
 
         /* Modern fonts and typography */
         
         .neon-text {
             animation: neon-glow 2s infinite alternate;
+            text-align: center;
+            margin: 1rem 0;
         }
         
         @keyframes neon-glow {
@@ -165,73 +242,1005 @@
             }
         }
         
+        /* Improved accordion */
+        .accordion {
+            margin: 1.5rem 0;
+        }
+        
+        .accordion-btn {
+            background: rgba(0, 0, 60, 0.4);
+            border: none;
+            padding: 1rem 1.5rem;
+            width: 100%;
+            text-align: left;
+            color: #fff;
+            font-size: 1.1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .accordion-btn::after {
+            content: '+';
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .accordion-btn[aria-expanded="true"]::after {
+            transform: rotate(45deg);
+        }
+        
+        .panel {
+            background: rgba(0, 0, 50, 0.3);
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+            margin-bottom: 0.5rem;
+            border-radius: 0 0 0.5rem 0.5rem;
+        }
+        
+        .panel:not([hidden]) {
+            padding: 1rem 1.5rem;
+        }
+        
+        /* Improve pillars display */
+        .pillars-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .pillar {
+            background: rgba(0, 0, 60, 0.4);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 204, 0, 0.2);
+        }
+        
+        .pillar:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .circle {
+            background: linear-gradient(135deg, #fc0, #ff9a00);
+            color: #000;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        
         /* Improve table readability */
         .application-table {
             border-collapse: collapse;
             width: 100%;
+            margin: 2rem 0;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
         .application-table th, 
         .application-table td {
-            padding: 12px;
+            padding: 1rem;
             text-align: left;
-            border-bottom: 1px solid rgba(255,204,0,0.3);
         }
         
         .application-table th {
             background: rgba(255,204,0,0.2);
             color: #fc0;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .application-table tr:nth-child(odd) {
+            background: rgba(0, 0, 60, 0.4);
+        }
+        
+        .application-table tr:nth-child(even) {
+            background: rgba(0, 0, 50, 0.2);
         }
         
         .application-table tr:hover {
             background: rgba(255,204,0,0.1);
         }
         
-        .pillar p, .source h3, .fat-card h3 {
-            text-shadow: 0 2px 3px rgba(0,0,0,0.5);
+        /* Improved sources grid */
+        .sources-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
         
-        .sources-container {
-            border: 1px solid #efff;
+        .source {
+            background: rgba(0, 0, 60, 0.4);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .source:hover {
+            transform: translateY(-5px);
+        }
+        
+        .source svg {
+            width: 150px;
+            height: 150px;
+            filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.5));
+            margin: 0 auto 1rem;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+        
+        .source svg:hover {
+            transform: translateY(-5px) scale(1.05);
+        }
+        
+        /* Improved schools display */
+        .schools-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .school {
+            background: rgba(0, 0, 60, 0.4);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 100%;
+        }
+        
+        .school:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .school svg {
+            width: 150px;
+            height: 150px;
+            filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.5));
+            margin: 0 auto 1rem;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+        
+        .school svg:hover {
+            transform: translateY(-5px) scale(1.05);
+        }
+        
+        .school h3 {
+            margin-top: 1rem;
+        }
+        
+        /* Fatwa grid */
+        .fatwa-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .fat-card {
+            background: rgba(0, 0, 60, 0.4);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 100%;
+        }
+        
+        .fat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Resources styling */
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .resource-card {
+            background: rgba(0, 0, 60, 0.4);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 100%;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Improved aside panel */
+        .side-panel {
+            background: rgba(0, 0, 60, 0.4);
+            padding: 1.5rem;
+            margin: 1.5rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 204, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .holographic-text {
+            text-align: center;
+            position: relative;
+            color: transparent;
+            background: linear-gradient(45deg, #fc0, #ff6b00, #fc0);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: hologram 3s ease infinite;
+            margin-bottom: 1.5rem;
+        }
+        
+        @keyframes hologram {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        /* Footer styling */
+        .glass-footer {
+            background: rgba(0, 0, 40, 0.6);
+            text-align: center;
+            padding: 1.5rem;
+            border-top: 1px solid rgba(255, 204, 0, 0.2);
+            border-radius: 0 0 1rem 1rem;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: rgba(255, 204, 0, 0.8);
+            color: #000;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            background: #fc0;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .header {
+                padding: 1rem;
+                flex-direction: column;
+            }
+            
+            .nav-glass ul {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .glow-btn {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.7rem;
+            }
+            
+            .glass-card {
+                padding: 1.8rem;
+            }
+            
+            .pillars-container,
+            .sources-container,
+            .schools-container,
+            .fatwa-grid,
+            .resource-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .application-table {
+                overflow-x: auto;
+                display: block;
+            }
+        }
+        
+        /* Mouse follow lighting effect */
+        .glass-card, .pillar, .school, .source, .fat-card, .resource-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .glass-card::before, .pillar::before, .school::before, 
+        .source::before, .fat-card::before, .resource-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(
+                800px circle at var(--mouse-x) var(--mouse-y),
+                rgba(255, 204, 0, 0.1),
+                transparent 40%
+            );
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        
+        .glass-card:hover::before, .pillar:hover::before, .school:hover::before,
+        .source:hover::before, .fat-card:hover::before, .resource-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Fatwa examples styling */
+        .modern-sharia-applications {
+            margin-top: 2rem;
+            background: rgba(0, 0, 60, 0.3);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 204, 0, 0.2);
+        }
+        
+        .fatwa-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .fatwa-example {
+            background: rgba(0, 0, 80, 0.4);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .fatwa-example:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .fatwa-example h4 {
+            color: #fc0;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 204, 0, 0.3);
+        }
+
+        /* Enhanced resource styling */
+        .resource-highlight {
+            font-style: italic;
+            border-left: 3px solid rgba(255, 204, 0, 0.6);
+            padding-left: 1rem;
+            margin-top: 1rem;
+            background: rgba(255, 204, 0, 0.1);
+            padding: 0.75rem 1rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+        }
+        
+        .scholarly-journals, .digital-collections {
+            background: rgba(0, 0, 60, 0.3);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            margin-top: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .journal-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .journal-list li {
+            background: rgba(0, 0, 80, 0.4);
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .journal-list li:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 100, 0.5);
+        }
+
+        /* Legal Maxims styling */
+        .maxims-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .maxim-card {
+            background: rgba(0, 0, 60, 0.4);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .maxim-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .maxim-arabic {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fc0;
+            margin-bottom: 0.75rem;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+        }
+        
+        .maxim-transliteration {
+            font-style: italic;
+            color: #ccc;
+            margin-bottom: 0.75rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .maxim-translation {
+            font-weight: bold;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(255, 204, 0, 0.3);
+            text-align: center;
+            color: #fff;
+        }
+        
+        .maxim-explanation {
+            text-align: left;
+        }
+        
+        .maxim-explanation blockquote {
+            border-left: 3px solid #fc0;
+            padding-left: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+            background: rgba(255, 204, 0, 0.1);
+            padding: 0.75rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+        }
+
+        /* Optimize performance */
+        .section {
+            will-change: auto;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            perspective: 1000px;
+        }
+        
+        .section.active-section {
+            will-change: transform, opacity;
+        }
+        
+        .section.preloaded {
+            content-visibility: auto;
+            contain-intrinsic-size: auto 500px;
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            .glow-btn, .gl-btn,
+            .glass-card, .pillar, .school, .source, .fat-card, .resource-card {
+                transition: none !important;
+                animation: none !important;
+                transform: none !important;
+                box-shadow: none !important;
+            }
+            
+            .back-to-top, .accordion-btn {
+                transition: none !important;
+            }
+            
+            .neon-text, .holographic-text {
+                animation: none !important;
+                text-shadow: 0 0 10px rgba(255, 204, 0, 0.8) !important;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .section:not(.active-section) {
+            display: none;
+        }
+        
+        .section.active-section {
+            display: block;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        /* Quran references styling */
+        .quran-references {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.8rem;
+            margin: 2rem 0;
+        }
+        
+        .quran-card {
+            background: rgba(0, 0, 60, 0.4);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .quran-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 204, 0, 0.3);
+        }
+        
+        .quran-arabic {
+            font-size: 1.4rem;
+            line-height: 2.2;
+            text-align: right;
+            margin-bottom: 1rem;
+            color: #fc0;
+            font-family: 'Amiri', serif;
+            text-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+            direction: rtl;
+            padding: 0.5rem;
+            background: rgba(0, 0, 100, 0.2);
+            border-radius: 0.5rem;
+        }
+        
+        .quran-reference {
+            font-style: italic;
+            color: #ccc;
+            margin-bottom: 0.75rem;
+            text-align: right;
+            font-size: 0.9rem;
+            padding-right: 0.5rem;
+        }
+        
+        .quran-translation {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            padding: 0.75rem;
+            border-left: 3px solid rgba(255, 204, 0, 0.6);
+            background: rgba(0, 0, 80, 0.3);
+            border-radius: 0 0.5rem 0.5rem 0;
+        }
+        
+        .quran-relevance h4 {
+            color: #fc0;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .quran-relevance p {
+            color: #eee;
+            font-size: 0.95rem;
+        }
+
+        /* Hadith references styling */
+        .hadith-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.8rem;
+            margin: 2rem 0;
+        }
+        
+        .hadith-card {
+            background: rgba(0, 0, 60, 0.4);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hadith-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 204, 0, 0.3);
+        }
+        
+        .hadith-text {
+            font-size: 1.4rem;
+            line-height: 2.2;
+            text-align: right;
+            margin-bottom: 1rem;
+            color: #fc0;
+            font-family: 'Amiri', serif;
+            text-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+            direction: rtl;
+            padding: 0.5rem;
+            background: rgba(0, 0, 100, 0.2);
+            border-radius: 0.5rem;
+        }
+        
+        .hadith-translation {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            padding: 0.75rem;
+            border-left: 3px solid rgba(255, 204, 0, 0.6);
+            background: rgba(0, 0, 80, 0.3);
+            border-radius: 0 0.5rem 0.5rem 0;
+        }
+        
+        .hadith-source {
+            font-weight: bold;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 204, 0, 0.3);
+            text-align: center;
+            color: #fff;
+        }
+        
+        .hadith-significance {
+            text-align: left;
+        }
+        
+        .hadith-significance h4 {
+            color: #fc0;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .hadith-significance p {
+            color: #eee;
+            font-size: 0.95rem;
+        }
+
+        /* Scripture references in overview */
+        .scripture-references {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+            justify-content: space-between;
+        }
+        
+        .quran-mini, .hadith-mini {
+            background: rgba(0, 0, 80, 0.4);
+            padding: 1rem;
+            border-radius: 0.75rem;
+            border-left: 3px solid rgba(255, 204, 0, 0.6);
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .quran-mini:hover, .hadith-mini:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 100, 0.5);
+        }
+        
+        .arabic-text, .hadith-text {
+            display: block;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-align: right;
+            margin-bottom: 0.75rem;
+            color: #fc0;
+            font-family: 'Amiri', serif;
+            direction: rtl;
+        }
+        
+        .reference {
+            display: block;
+            font-style: italic;
+            color: #ccc;
+            text-align: right;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .translation {
+            display: block;
+            font-style: italic;
+            color: #eee;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 0.5rem;
+        }
+
+        /* Improve vertical spacing */
+        .quran-references,
+        .hadith-container,
+        .maxims-container,
+        .pillars-container,
+        .sources-container, 
+        .schools-container,
+        .fatwa-grid,
+        .resource-grid,
+        .fatwa-examples,
+        .journal-list {
+            row-gap: 2.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .quran-card,
+        .hadith-card,
+        .maxim-card,
+        .pillar,
+        .source,
+        .school,
+        .fat-card,
+        .resource-card,
+        .fatwa-example,
+        .journal-list li {
+            margin-bottom: 0.0rem;
+            padding-bottom: 0.0rem;
+        }
+        
+        .scripture-references {
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .quran-mini, .hadith-mini {
+            margin-bottom: 1rem;
+        }
+        
+        .card {
+            margin-bottom: 2rem;
+        }
+
+        /* Section spacing */
+        .section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 204, 0, 0.15);
+        }
+        
+        .section > h2 {
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section > p {
+            margin-bottom: 1.8rem;
+        }
+        
+        /* Content group spacing */
+        .hadith-significance,
+        .quran-relevance,
+        .maxim-explanation {
+            padding: 1.2rem;
+            margin-top: 1rem;
+            background: rgba(0, 0, 60, 0.2);
+            border-radius: 0.75rem;
+        }
+        
+        .hadith-significance h4,
+        .quran-relevance h4,
+        .maxim-explanation h4 {
+            margin-bottom: 0.8rem;
+        }
+        
+        /* Add visual separators */
+        .glass-card > h2 {
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .glass-card > h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, rgba(255, 204, 0, 0.7), transparent);
+        }
+
+        /* Card dividers */
+        .quran-card,
+        .hadith-card,
+        .maxim-card,
+        .school,
+        .source,
+        .resource-card,
+        .fat-card,
+        .fatwa-example {
+            position: relative;
+            padding-top: 2rem;
+        }
+        
+        /* Increase content breathing room */
+        .quran-arabic, 
+        .hadith-text {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+        }
+        
+        .quran-translation,
+        .hadith-translation {
+            margin-bottom: 2rem;
+            padding: 1rem;
+        }
+        
+        /* Mobile view improvements */
+        @media (max-width: 768px) {
+            .quran-references,
+            .hadith-container,
+            .maxims-container,
+            .pillars-container,
+            .sources-container, 
+            .schools-container,
+            .fatwa-grid,
+            .resource-grid,
+            .fatwa-examples,
+            .journal-list {
+                row-gap: 3rem;
+            }
+            
+            .card {
+                margin-bottom: 3rem;
+            }
+            
+            .section {
+                margin-bottom: 4rem;
+                padding-bottom: 3rem;
+            }
+            
+            .hadith-significance,
+            .quran-relevance,
+            .maxim-explanation {
+                margin-top: 1.5rem;
+            }
+            
+            .scripture-references {
+                gap: 2.5rem;
+                margin: 2.5rem 0;
+            }
+            
+            /* Ensure mobile spacing is adequate */
+            h2 {
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="glass-container">
-        <header style="background-image: linear-gradient(150deg, #000051 0%, #1a1a5a 100%);" class="header">
+        <header class="header">
             <div class="logo-container">
-                <svg width="200" height="200" viewBox="0 0 200 200" class="logo glowing">
+                <svg width="150" height="150" viewBox="0 0 200 200" class="logo glowing">
                     <circle cx="100" cy="100" r="90" fill="rgba(255, 255, 255, 0.1)" />
                     <path d="M100,30 L120,70 L160,70 L130,100 L150,150 L100,120 L50,150 L70,100 L40,70 L80,70 Z" fill="#fc0" />
                     <text x="100" y="180" text-anchor="middle" fill="white" font-size="16">Islamic Sharia Law</text>
                 </svg>
             </div>
             <nav class="nav-glass">
-                <ul>
-                    <li class="tab-buttons">
-                        <button class="glow-btn active" data-target-section="overview">Core Concepts</button>
-                        <button class="gl-btn" data-target-section="principles">Principles</button>
-                        <button class="gl-btn" data-target-section="sources">Sources</button>
-                        <button class="gl-btn" data-target-section="branches">Schools</button>
-                        <button class="gl-btn" data-target-section="fatwa">Fatwa</button>
-                        <button class="gl-btn" data-target-section="resources">Resources</button>
-                    </li>
-                </ul>
                 <h1 class="neon-text">Understanding Sharia Law</h1>
+                <ul class="tab-buttons">
+                    <li><button class="glow-btn active" data-target-section="overview">Core Concepts</button></li>
+                    <li><button class="glow-btn" data-target-section="principles">Principles</button></li>
+                    <li><button class="glow-btn" data-target-section="sources">Sources</button></li>
+                    <li><button class="glow-btn" data-target-section="quranic-references">Quranic Texts</button></li>
+                    <li><button class="glow-btn" data-target-section="hadith-references">Hadith Texts</button></li>
+                    <li><button class="glow-btn" data-target-section="branches">Schools</button></li>
+                    <li><button class="glow-btn" data-target-section="legal-maxims">Legal Maxims</button></li>
+                    <li><button class="glow-btn" data-target-section="fatwa">Fatwa</button></li>
+                    <li><button class="glow-btn" data-target-section="application">Applications</button></li>
+                    <li><button class="glow-btn" data-target-section="resources">Resources</button></li>
+                    <li><button class="glow-btn" data-target-section="misconceptions">Misconceptions</button></li>
+                </ul>
             </nav>
         </header>
+        <div class="container">
         <main>
             <section class="card-container">
                 <section id="overview" class="section glass-card active-section">
                     <h2>What is Sharia Law?</h2>
                     <div class="card">
-                        <p>Sharia is Islam’s legal framework for moral guidance and legal principles derived covering all aspects of life:</p>
+                            <p>Sharia is Islam's legal framework for moral guidance and legal principles derived covering all aspects of life:</p>
                         <ul>
-                            <li><strong>Worship</strong>: Prayer, fasting, zakat, pilgrimage</li>
-                            <li><strong>Personal Life</strong>: Food, dress, marriage, ethics</li>
+                                <li><strong>Worship (Ibadah)</strong>: Prayer, fasting, zakat, pilgrimage</li>
+                                <li><strong>Personal Life (Muamalat)</strong>: Food, dress, marriage, ethics</li>
                             <li><strong>Social/Commerce</strong>: Business, inheritance, contracts, crimes</li>
                         </ul>
-                        <p>interpreted by scholars in context (faqih, mujtahid) to adapt to varying circumstances.</p>
+                            <p>Sharia is interpreted by scholars in context (faqih, mujtahid) to adapt to varying circumstances, guided by divine revelation:</p>
+                            
+                            <div class="scripture-references">
+                                <div class="quran-mini">
+                                    <span class="arabic-text">وَأَنِ احْكُم بَيْنَهُم بِمَا أَنزَلَ اللَّهُ وَلَا تَتَّبِعْ أَهْوَاءَهُمْ</span>
+                                    <span class="reference">(Quran 5:49)</span>
+                                    <span class="translation">"And judge between them by what Allah has revealed and do not follow their inclinations"</span>
+                                </div>
+                                
+                                <div class="hadith-mini">
+                                    <span class="hadith-text">من يرد الله به خيرا يفقهه في الدين</span>
+                                    <span class="reference">(Sahih Bukhari 71 & Muslim 1037)</span>
+                                    <span class="translation">"Whomever Allah wishes good for, He gives understanding of the religion"</span>
+                                </div>
+                            </div>
+                            
+                            <h3>Core Characteristics of Sharia</h3>
+                            <ul>
+                                <li><strong>Divine Origin</strong>: Based on revelation (Quran) and Prophetic example (Sunnah)</li>
+                                <li><strong>Comprehensive</strong>: Covers all aspects of human life and behavior</li>
+                                <li><strong>Purposive</strong>: Aimed at achieving human welfare (maslaha)</li>
+                                <li><strong>Flexible</strong>: Contains mechanisms for adaptation to changing circumstances</li>
+                                <li><strong>Ethical</strong>: Emphasizes moral obligations alongside legal duties</li>
+                            </ul>
                     </div>
                 </section>
                 <section id="principles" class="section glass-card">
@@ -239,24 +1248,54 @@
                     <div class="pillars-container">
                         <div class="pillar">
                             <div class="circle">1</div>
-                            <p>Protection of Faith</p>
+                                <h3>Protection of Faith</h3>
+                                <p>Freedom of religious practice and preservation of religious values, including:</p>
+                                <ul>
+                                    <li>Protection of places of worship</li>
+                                    <li>Religious education and guidance</li>
+                                    <li>Respecting sanctity of religious symbols</li>
+                                </ul>
                         </div>
                         <div class="pillar">
                             <div class="circle">2</div>
                             <h3>Protection of Life</h3>
                             <p>Detailed rules on justice in capital cases and sanctity of life, including:</p>
+                                <ul>
+                                    <li>Strong burden of proof in criminal cases</li>
+                                    <li>Healthcare provisions and medical ethics</li>
+                                    <li>Prohibition of suicide and euthanasia</li>
+                                </ul>
                         </div>
                         <div class="pillar">
                             <div class="circle">3</div>
-                            <p>Protection of Intellect</p>
+                                <h3>Protection of Intellect</h3>
+                                <p>Preserving mental capacities and encouraging intellectual growth:</p>
+                                <ul>
+                                    <li>Prohibition of intoxicants</li>
+                                    <li>Pursuit of knowledge as religious duty</li>
+                                    <li>Freedom of thought within ethical boundaries</li>
+                                </ul>
                         </div>
                         <div class="pillar">
                             <div class="circle">4</div>
-                            <p>Protection of Lineage</p>
+                                <h3>Protection of Lineage</h3>
+                                <p>Preserving family structure and clear lineage relations:</p>
+                                <ul>
+                                    <li>Marriage as legal framework for family</li>
+                                    <li>Rights of children to know their parentage</li>
+                                    <li>Prohibition of adultery and false paternity claims</li>
+                                </ul>
                         </div>
                         <div class="pillar">
                             <div class="circle">5</div>
-                            <p>Protection of Property</p>
+                                <h3>Protection of Property</h3>
+                                <p>Safeguarding wealth and economic rights:</p>
+                                <ul>
+                                    <li>Prohibition of theft, fraud, and usury</li>
+                                    <li>Rules for fair contracts and transactions</li>
+                                    <li>Rights of ownership and inheritance laws</li>
+                                    <li>Economic redistribution through zakat (charity)</li>
+                                </ul>
                         </div>
                     </div>
                 </section>
@@ -264,9 +1303,9 @@
                     <h2>Primary & Secondary Sources</h2>
                     <div class="sources-container">
                         <div class="source">
-                            <svg width="100" height="100">
-                                <rect width="100" height="100" rx="10" fill="#036" />
-                                <text x="50" y="60" text-anchor="middle" fill="white">Quran</text>
+                                <svg width="150" height="150">
+                                    <rect width="150" height="150" rx="10" fill="#036" />
+                                    <text x="75" y="80" text-anchor="middle" fill="white" font-size="16">Quran</text>
                             </svg>
                             <h3>Quran</h3>
                             <ul>
@@ -276,9 +1315,9 @@
                             </ul>
                         </div>
                         <div class="source">
-                            <svg width="100" height="100">
-                                <rect width="100" height="100" rx="10" fill="#036" />
-                                <text x="50" y="60" text-anchor="middle" fill="white">Sunnah (Prophetic Tradition)</text>
+                                <svg width="150" height="150">
+                                    <rect width="150" height="150" rx="10" fill="#036" />
+                                    <text x="75" y="80" text-anchor="middle" fill="white" font-size="16">Sunnah</text>
                             </svg>
                             <h3>Sunnah</h3>
                             <ul>
@@ -288,9 +1327,9 @@
                             </ul>
                         </div>
                         <div class="source">
-                            <svg width="100" height="100">
-                                <rect width="100" height="100" rx="10" fill="#036" />
-                                <text x="50" y="60" text-anchor="middle" fill="white">Ijma</text>
+                                <svg width="150" height="150">
+                                    <rect width="150" height="150" rx="10" fill="#036" />
+                                    <text x="75" y="80" text-anchor="middle" fill="white" font-size="16">Ijma</text>
                             </svg>
                             <h3>Ijma (Scholarly) Consensus</h3>
                             <p>Applications in:</p>
@@ -301,9 +1340,9 @@
                             </ul>
                         </div>
                         <div class="source">
-                            <svg width="100" height="100">
-                                <rect width="100" height="100" rx="10" fill="#036" />
-                                <text x="50" y="60" text-anchor="middle" fill="white">Qiyas</text>
+                                <svg width="150" height="150">
+                                    <rect width="150" height="150" rx="10" fill="#036" />
+                                    <text x="75" y="80" text-anchor="middle" fill="white" font-size="16">Qiyas</text>
                             </svg>
                             <h3>Analogical Reasoning</h3>
                             <ul>
@@ -318,12 +1357,24 @@
                     <h2>Madhhabs (Schools of Thought)</h2>
                     <div class="schools-container">
                         <div class="school">
-                            <svg width="100" height="100">
-                                <rect width="100" height="100" rx="10" fill="#036" />
-                                <text x="50" y="60" text-anchor="middle" fill="white">Hanafi</text>
+                                <svg width="150" height="150">
+                                    <rect width="150" height="150" rx="10" fill="#036" />
+                                    <text x="75" y="80" text-anchor="middle" fill="white" font-size="16">Hanafi</text>
                             </svg>
+                                <h3>Hanafi School</h3>
+                                <p>Founded by Imam Abu Hanifa (d.767)</p>
+                                <ul>
+                                    <li>Most widely followed school globally</li>
+                                    <li>Emphasizes analogical reasoning (qiyas)</li>
+                                    <li>Prevalent in Turkey, Balkans, Central Asia, South Asia</li>
+                                    <li>Known for flexibility and pragmatism</li>
+                                </ul>
                         </div>
                         <div class="school">
+                                <svg width="150" height="150">
+                                    <rect width="150" height="150" rx="10" fill="#036" />
+                                    <text x="75" y="80" text-anchor="middle" fill="white" font-size="16">Maliki</text>
+                                </svg>
                             <h3>Maliki School</h3>
                             <p>Founded by Imam Malik ibn Anas (d.795)</p>
                             <ul>
@@ -333,7 +1384,48 @@
                                 <li>Employs (block evas) to prevent harm</li>
                             </ul>
                         </div>
-                        <!-- add more schools -->
+                            <div class="school">
+                                <svg width="150" height="150">
+                                    <rect width="150" height="150" rx="10" fill="#036" />
+                                    <text x="75" y="80" text-anchor="middle" fill="white" font-size="16">Shafi'i</text>
+                                </svg>
+                                <h3>Shafi'i School</h3>
+                                <p>Founded by Imam al-Shafi'i (d.820)</p>
+                                <ul>
+                                    <li>Prevalent in Egypt, Horn of Africa, Southeast Asia</li>
+                                    <li>Systematized usul al-fiqh (principles of jurisprudence)</li>
+                                    <li>Balances textual evidence with reasoning</li>
+                                    <li>Created formal methodology for deriving rulings</li>
+                                </ul>
+                            </div>
+                            <div class="school">
+                                <svg width="150" height="150">
+                                    <rect width="150" height="150" rx="10" fill="#036" />
+                                    <text x="75" y="80" text-anchor="middle" fill="white" font-size="16">Hanbali</text>
+                                </svg>
+                                <h3>Hanbali School</h3>
+                                <p>Founded by Imam Ahmad ibn Hanbal (d.855)</p>
+                                <ul>
+                                    <li>Predominant in Saudi Arabia and Qatar</li>
+                                    <li>Most literal interpretation of texts</li>
+                                    <li>Minimizes role of personal opinion in rulings</li>
+                                    <li>Strict adherence to authentic hadith</li>
+                                </ul>
+                            </div>
+                            <div class="school">
+                                <svg width="150" height="150">
+                                    <rect width="150" height="150" rx="10" fill="#036" />
+                                    <text x="75" y="80" text-anchor="middle" fill="white" font-size="16">Ja'fari</text>
+                                </svg>
+                                <h3>Ja'fari School</h3>
+                                <p>Named after Imam Ja'far al-Sadiq (d.765)</p>
+                                <ul>
+                                    <li>Main Shia jurisprudential school</li>
+                                    <li>Prevalent in Iran, Iraq, and parts of Lebanon</li>
+                                    <li>Emphasizes role of Imams in interpretation</li>
+                                    <li>Distinct approach to inheritance and marriage laws</li>
+                                </ul>
+                            </div>
                     </div>
                 </section>
                 <section id="fatwa" class="section glass-card">
@@ -367,22 +1459,85 @@
                     </div>
                 </section>
                 <section id="resources" class="section glass-card">
-                    <h2>Digital Resources</h2>
+                        <h2>Academic & Scholarly Resources</h2>
+                        <p>The following resources offer authoritative information on Islamic Sharia Law from respected institutions:</p>
+                        
                     <div class="resource-grid">
                         <div class="resource-card">
-                            <h3>Islamic Jurisprudence Database</h3>
-                            <ul>
-                                <li><a href="https://islamqa.org/" target="_blank">Islamqa.org - Fatawa Database</a></li>
-                                <li><a href="http://seekersguidance.org/" target="_blank">Seeker's Guidance - Learning Resources</a></li>
+                                <h3>IslamQA.org</h3>
+                                <p>One of the most comprehensive fatwa databases:</p>
+                                <ul>
+                                    <li><a href="https://islamqa.org/hanafi/" target="_blank">Hanafi School Rulings</a></li>
+                                    <li><a href="https://islamqa.org/shafii/" target="_blank">Shafi'i School Opinions</a></li>
+                                    <li><a href="https://islamqa.org/maliki/" target="_blank">Maliki Jurisprudence</a></li>
+                                    <li><a href="https://islamqa.org/hanbali/" target="_blank">Hanbali Interpretations</a></li>
                             </ul>
+                                <p class="resource-highlight">Features fatawa from qualified muftis across major madhhabs, with detailed evidences from primary sources.</p>
                         </div>
+                            
                         <div class="resource-card">
-                            <h3>Research Guides</h3>
+                                <h3>Harvard SHARIAsource</h3>
+                                <p>Academic portal from Harvard Law School:</p>
                             <ul>
-                                <li><a href="http://pil.law.harvard.edu/source-portal" target="_blank">Harvard - Sharia Source</a></li>
-                                <li><a href="https://gdes.okcu.edu/samiclawh" target="_blank">OCU Islamic Law</a></li>
+                                    <li><a href="https://pil.law.harvard.edu/shariasource-portal/" target="_blank">Digital Islamic Law Portal</a></li>
+                                    <li><a href="https://guides.library.harvard.edu/c.php?g=309902&p=2070121" target="_blank">Islamic Legal Studies Guide</a></li>
+                            </ul>
+                                <p class="resource-highlight">Provides access to primary sources, contemporary analysis, and court cases implementing Islamic law principles globally.</p>
+                        </div>
+                            
+                            <div class="resource-card">
+                                <h3>SeekersGuidance.org</h3>
+                                <p>Educational foundation with free courses:</p>
+                                <ul>
+                                    <li><a href="https://seekersguidance.org/answers/" target="_blank">Fatwa Service</a></li>
+                                    <li><a href="https://seekersguidance.org/courses/" target="_blank">Islamic Law Courses</a></li>
+                                </ul>
+                                <p class="resource-highlight">Offers curriculum-based learning from traditionally trained scholars, focusing on practical application of Sharia in contemporary contexts.</p>
+                            </div>
+                            
+                            <div class="resource-card">
+                                <h3>Oklahoma City University</h3>
+                                <p>Academic guide to Islamic law:</p>
+                                <ul>
+                                    <li><a href="https://libguides.okcu.edu/islamiclaw" target="_blank">Islamic Law Research Guide</a></li>
+                                    <li><a href="https://libguides.okcu.edu/islamiclaw/primary" target="_blank">Primary Sources</a></li>
+                                </ul>
+                                <p class="resource-highlight">Comprehensive collection of legal texts, historical contexts, and methodological frameworks for studying Islamic jurisprudence.</p>
+                            </div>
+                            
+                            <div class="resource-card">
+                                <h3>Islamic-Sharia.org</h3>
+                                <p>UK-based council focusing on:</p>
+                                <ul>
+                                    <li><a href="https://www.islamic-sharia.org/khula/" target="_blank">Family Law Resources</a></li>
+                                    <li><a href="https://www.islamic-sharia.org/islamic-banking/" target="_blank">Islamic Finance</a></li>
+                                </ul>
+                                <p class="resource-highlight">Provides practical guidance for Muslims living in Western societies with detailed explanations of how Sharia principles apply in non-Muslim majority contexts.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="scholarly-journals">
+                            <h3>Academic Journals</h3>
+                            <p>For scholarly research into Islamic law:</p>
+                            <ul class="journal-list">
+                                <li>Journal of Islamic Studies (Oxford University Press)</li>
+                                <li>Arab Law Quarterly (Brill)</li>
+                                <li>Islamic Law and Society (Brill)</li>
+                                <li>Journal of Islamic Ethics (Brill)</li>
+                                <li>Muslim World Journal of Human Rights (De Gruyter)</li>
                             </ul>
                         </div>
+                        
+                        <div class="digital-collections">
+                            <h3>Digital Library Collections</h3>
+                            <p>Historical manuscripts and primary sources:</p>
+                            <ul>
+                                <li>Princeton University Digital Islamic Law Collection</li>
+                                <li>Al-Azhar University Digital Manuscripts</li>
+                                <li>Dar al-Kutub al-Misriyya (Egyptian National Library)</li>
+                                <li>British Library Arabic and Persian Collections</li>
+                                <li>Library of Congress Islamic Manuscripts</li>
+                            </ul>
                     </div>
                 </section>
                 <section id="misconceptions" class="section glass-card">
@@ -396,47 +1551,431 @@
                         <div class="panel" id="panel2" hidden>
                             <p>Many Islamic scholars argue that core Sharia principles align with democratic values like justice, consultation and protection of rights.</p>
                         </div>
+                            <button class="accordion-btn" aria-controls="panel3" aria-expanded="false">Is Sharia law unchangeable?</button>
+                            <div class="panel" id="panel3" hidden>
+                                <p>While core principles derived from the Quran and Sunnah are considered divine and unchangeable, much of Sharia is interpretative and adaptable to changing times and circumstances through ijtihad (scholarly reasoning).</p>
+                            </div>
+                            <button class="accordion-btn" aria-controls="panel4" aria-expanded="false">Does Sharia oppress women?</button>
+                            <div class="panel" id="panel4" hidden>
+                                <p>Classical Sharia granted women rights to education, property ownership, inheritance, and divorce centuries before Western legal systems. Modern interpretations vary widely based on cultural context rather than religious text.</p>
+                            </div>
+                            <button class="accordion-btn" aria-controls="panel5" aria-expanded="false">Is Sharia law the same everywhere?</button>
+                            <div class="panel" id="panel5" hidden>
+                                <p>No, Sharia varies significantly across regions and countries due to different schools of thought, cultural influences, and the extent to which it's incorporated into civil legal systems.</p>
+                        </div>
                     </div>
                 </section>
                 <section id="application" class="section glass-card">
+                        <h2>Contemporary Applications</h2>
+                        <p>Based on guidance from Islamic scholarly sources including SeekersGuidance and IslamQA:</p>
                     <table class="application-table">
                         <tr>
                             <th>Field</th>
                             <th>Application</th>
                             <th>Example</th>
+                                <th>Source</th>
                         </tr>
                         <tr>
                             <td>Finance</td>
-                            <td>Prohibition of Interest</td>
-                            <td>Islamic banking models like mudarabah</td>
+                                <td>Prohibition of Interest (Riba)</td>
+                                <td>Islamic banking models like mudarabah (profit-sharing) and musharakah (partnership)</td>
+                                <td>Islamic-Sharia.org</td>
                         </tr>
-                        <!-- existing rows in table format -->
+                            <tr>
+                                <td>Family Law</td>
+                                <td>Marriage & Divorce</td>
+                                <td>Nikah contracts with clear terms, rights of both spouses, limited polygyny conditions</td>
+                                <td>SeekersGuidance.org</td>
+                            </tr>
+                            <tr>
+                                <td>Business</td>
+                                <td>Ethical Trade</td>
+                                <td>Prohibition of gharar (excessive uncertainty), fraud, and unfair advantage</td>
+                                <td>IslamQA.org</td>
+                            </tr>
+                            <tr>
+                                <td>Medical Ethics</td>
+                                <td>Sanctity of Life</td>
+                                <td>Rulings on euthanasia, organ donation, reproductive technologies</td>
+                                <td>Harvard ShariaSources</td>
+                            </tr>
+                            <tr>
+                                <td>Criminal Law</td>
+                                <td>Graduated Punishment</td>
+                                <td>Ta'zir (discretionary) penalties based on severity and circumstance</td>
+                                <td>OCU Islamic Law Guide</td>
+                            </tr>
+                            <tr>
+                                <td>Technology</td>
+                                <td>Digital Ethics</td>
+                                <td>Privacy rights, data protection principles, digital contracts (smart contracts)</td>
+                                <td>Harvard Islamic Legal Studies</td>
+                            </tr>
+                            <tr>
+                                <td>Environmental Law</td>
+                                <td>Stewardship of Earth</td>
+                                <td>Conservation principles, prohibition of wasteful resource use (israf)</td>
+                                <td>SeekersGuidance.org</td>
+                            </tr>
+                            <tr>
+                                <td>Bioethics</td>
+                                <td>Medical Interventions</td>
+                                <td>Rulings on gene therapy, cloning, and end-of-life care</td>
+                                <td>IslamQA.org</td>
+                            </tr>
+                            <tr>
+                                <td>Food & Nutrition</td>
+                                <td>Halal Standards</td>
+                                <td>Certification requirements, humane slaughter methods, ingredients verification</td>
+                                <td>Islamic-Sharia.org</td>
+                            </tr>
                     </table>
+                        
+                        <div class="modern-sharia-applications">
+                            <h3>Contemporary Fatawa (Legal Rulings)</h3>
+                            <p>Modern scholars have issued numerous fatawa on contemporary issues, adapting classical principles to new contexts:</p>
+                            
+                            <div class="fatwa-examples">
+                                <div class="fatwa-example">
+                                    <h4>Cryptocurrency (IslamQA.org)</h4>
+                                    <p>Many scholars consider cryptocurrencies permissible if they:</p>
+                                    <ul>
+                                        <li>Have real utility and value</li>
+                                        <li>Are not primarily speculative instruments</li>
+                                        <li>Do not involve excessive uncertainty (gharar)</li>
+                                        <li>Are not used for illicit purposes</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="fatwa-example">
+                                    <h4>Medical Necessity (SeekersGuidance)</h4>
+                                    <p>The principle of necessity (darura) permits normally prohibited actions when necessary for preserving life:</p>
+                                    <ul>
+                                        <li>Use of prohibited medications containing alcohol</li>
+                                        <li>Organ transplantation under specific conditions</li>
+                                        <li>Medical procedures during Ramadan fasting</li>
+                                        <li>Gender-specific treatment accommodations</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="fatwa-example">
+                                    <h4>Digital Privacy (Harvard ShariaSources)</h4>
+                                    <p>Modern fatawa have extended privacy protection to digital realms based on:</p>
+                                    <ul>
+                                        <li>The Quranic prohibition of spying</li>
+                                        <li>The sanctity of private information</li>
+                                        <li>Protection of personal dignity (karama)</li>
+                                        <li>Consent requirements for data sharing</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="legal-maxims" class="section glass-card">
+                        <h2>Qawa'id Fiqhiyyah (Legal Maxims)</h2>
+                        <p>According to Harvard SHARIAsource and SeekersGuidance, Islamic legal theory employs overarching maxims to derive rulings:</p>
+                        
+                        <div class="maxims-container">
+                            <div class="maxim-card">
+                                <div class="maxim-arabic">الأمور بمقاصدها</div>
+                                <div class="maxim-transliteration">Al-umūru bi-maqāṣidihā</div>
+                                <div class="maxim-translation">"Acts are judged by intentions"</div>
+                                <div class="maxim-explanation">
+                                    <p>The validity of actions depends on the intentions behind them. This maxim is derived from the famous hadith:</p>
+                                    <blockquote>
+                                        "Indeed, actions are based on intentions, and each person will be rewarded according to their intention."
+                                    </blockquote>
+                                    <p>Applications in modern contexts include:</p>
+                                    <ul>
+                                        <li>Contract law: Determines validity based on parties' intentions</li>
+                                        <li>Criminal law: Distinguishes between intentional and unintentional acts</li>
+                                        <li>Financial transactions: Rules on permissibility based on purpose</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="maxim-card">
+                                <div class="maxim-arabic">اليقين لا يزول بالشك</div>
+                                <div class="maxim-transliteration">Al-yaqīnu lā yazūlu bi-l-shakk</div>
+                                <div class="maxim-translation">"Certainty is not removed by doubt"</div>
+                                <div class="maxim-explanation">
+                                    <p>An established fact remains valid until definitive evidence proves otherwise. From IslamQA sources:</p>
+                                    <ul>
+                                        <li>Ritual purity (tahara) remains valid until definitely broken</li>
+                                        <li>Property ownership persists until transfer is verified</li>
+                                        <li>Contracts remain valid until proven otherwise</li>
+                                        <li>Used in Islamic evidentiary standards and burden of proof</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="maxim-card">
+                                <div class="maxim-arabic">المشقة تجلب التيسير</div>
+                                <div class="maxim-transliteration">Al-mashaqqa tajlibu al-taysīr</div>
+                                <div class="maxim-translation">"Hardship begets facility"</div>
+                                <div class="maxim-explanation">
+                                    <p>According to OCU Islamic Law Guide, when application of a rule causes undue hardship, concessions are permitted. Examples include:</p>
+                                    <ul>
+                                        <li>Prayer shortening during travel</li>
+                                        <li>Fasting exemptions for illness or travel</li>
+                                        <li>Modern applications in medical treatment during Ramadan</li>
+                                        <li>Economic relief provisions during financial hardship</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="maxim-card">
+                                <div class="maxim-arabic">الضرر يزال</div>
+                                <div class="maxim-transliteration">Al-ḍararu yuzāl</div>
+                                <div class="maxim-translation">"Harm must be eliminated"</div>
+                                <div class="maxim-explanation">
+                                    <p>From Islamic-Sharia.org, this principle establishes that harm prevention is a foundational goal:</p>
+                                    <ul>
+                                        <li>Environmental protection requirements</li>
+                                        <li>Consumer protection regulations</li>
+                                        <li>Medical ethics decisions</li>
+                                        <li>Grounds for divorce in cases of abuse</li>
+                                    </ul>
+                                    <p>Modern applications include prohibition of harmful industries and activities that damage society.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="maxim-card">
+                                <div class="maxim-arabic">العادة محكمة</div>
+                                <div class="maxim-transliteration">Al-'ādatu muḥakkamah</div>
+                                <div class="maxim-translation">"Custom is authoritative"</div>
+                                <div class="maxim-explanation">
+                                    <p>According to Harvard's Islamic Legal Studies, local customs ('urf) are considered a valid source of law when not contradicting explicit Islamic text:</p>
+                                    <ul>
+                                        <li>Commercial practices specific to different regions</li>
+                                        <li>Marriage customs that vary by culture</li>
+                                        <li>Standards for maintenance and financial support</li>
+                                        <li>Forms of contracts and business dealings</li>
+                                    </ul>
+                                    <p>This principle allows Sharia's adaptability to different societies and eras.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="quranic-references" class="section glass-card">
+                        <h2>Quranic Foundations of Sharia</h2>
+                        <p>The Quran provides the primary foundation for Islamic Sharia Law. Here are key verses that establish core legal principles:</p>
+                        
+                        <div class="quran-references">
+                            <div class="quran-card">
+                                <div class="quran-arabic">وَأَنزَلْنَا إِلَيْكَ الْكِتَابَ بِالْحَقِّ مُصَدِّقًا لِّمَا بَيْنَ يَدَيْهِ مِنَ الْكِتَابِ وَمُهَيْمِنًا عَلَيْهِ فَاحْكُم بَيْنَهُم بِمَا أَنزَلَ اللَّهُ</div>
+                                <div class="quran-reference">Surat Al-Ma'idah 5:48</div>
+                                <div class="quran-translation">"And We have revealed to you the Book in truth, confirming that which preceded it of the Scripture and as a criterion over it. So judge between them by what Allah has revealed."</div>
+                                <div class="quran-relevance">
+                                    <h4>Legal Significance:</h4>
+                                    <p>This establishes divine revelation as the primary source of law and commandment to judge by God's revelation. It forms the basis for deriving law from the Quran.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="quran-card">
+                                <div class="quran-arabic">يَا أَيُّهَا الَّذِينَ آمَنُوا أَطِيعُوا اللَّهَ وَأَطِيعُوا الرَّسُولَ وَأُولِي الْأَمْرِ مِنكُمْ فَإِن تَنَازَعْتُمْ فِي شَيْءٍ فَرُدُّوهُ إِلَى اللَّهِ وَالرَّسُولِ</div>
+                                <div class="quran-reference">Surat An-Nisa 4:59</div>
+                                <div class="quran-translation">"O you who believe! Obey Allah and obey the Messenger and those in authority among you. And if you disagree over anything, refer it to Allah and the Messenger."</div>
+                                <div class="quran-relevance">
+                                    <h4>Legal Significance:</h4>
+                                    <p>This verse establishes the second source of Islamic law (the Sunnah) and the hierarchical process for resolving disputes by referring to divine sources.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="quran-card">
+                                <div class="quran-arabic">لَا إِكْرَاهَ فِي الدِّينِ قَد تَّبَيَّنَ الرُّشْدُ مِنَ الْغَيِّ</div>
+                                <div class="quran-reference">Surat Al-Baqarah 2:256</div>
+                                <div class="quran-translation">"There shall be no compulsion in religion. The right course has become clear from the wrong."</div>
+                                <div class="quran-relevance">
+                                    <h4>Legal Significance:</h4>
+                                    <p>This establishes freedom of religious choice and informs the Sharia principle of respecting non-Muslims' religious autonomy in Islamic states.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="quran-card">
+                                <div class="quran-arabic">يَا أَيُّهَا الَّذِينَ آمَنُوا كُونُوا قَوَّامِينَ بِالْقِسْطِ شُهَدَاءَ لِلَّهِ وَلَوْ عَلَىٰ أَنفُسِكُمْ</div>
+                                <div class="quran-reference">Surat An-Nisa 4:135</div>
+                                <div class="quran-translation">"O you who have believed, be persistently standing firm in justice, witnesses for Allah, even if it be against yourselves."</div>
+                                <div class="quran-relevance">
+                                    <h4>Legal Significance:</h4>
+                                    <p>This establishes fair testimony as a cornerstone of Sharia judicial proceedings, requiring justice even when it goes against self-interest or family ties.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="quran-card">
+                                <div class="quran-arabic">وَأَوْفُوا بِالْعَهْدِ إِنَّ الْعَهْدَ كَانَ مَسْئُولًا</div>
+                                <div class="quran-reference">Surat Al-Isra 17:34</div>
+                                <div class="quran-translation">"And fulfill [every] commitment. Indeed, the commitment is ever [that about which one will be] questioned."</div>
+                                <div class="quran-relevance">
+                                    <h4>Legal Significance:</h4>
+                                    <p>This verse forms the basis for contract law in Sharia, emphasizing the binding nature of agreements and commitments in commercial and civil transactions.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="quran-card">
+                                <div class="quran-arabic">وَلَكُمْ فِي الْقِصَاصِ حَيَاةٌ يَا أُولِي الْأَلْبَابِ لَعَلَّكُمْ تَتَّقُونَ</div>
+                                <div class="quran-reference">Surat Al-Baqarah 2:179</div>
+                                <div class="quran-translation">"And there is for you in legal retribution [saving of] life, O you [people] of understanding, that you may become righteous."</div>
+                                <div class="quran-relevance">
+                                    <h4>Legal Significance:</h4>
+                                    <p>This establishes the principle of proportional justice (qisas) in criminal law, explaining that fair punishment serves as both a deterrent and a protection for society.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="hadith-references" class="section glass-card">
+                        <h2>Hadith Foundations of Islamic Law</h2>
+                        <p>The Sunnah (Prophet Muhammad's sayings and actions) forms the second primary source of Islamic law. Here are key Hadith that establish fundamental legal principles:</p>
+                        
+                        <div class="hadith-container">
+                            <div class="hadith-card">
+                                <div class="hadith-text">إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى، فَمَنْ كَانَتْ هِجْرَتُهُ إِلَى اللَّهِ وَرَسُولِهِ فَهِجْرَتُهُ إِلَى اللَّهِ وَرَسُولِهِ، وَمَنْ كَانَتْ هِجْرَتُهُ لِدُنْيَا يُصِيبُهَا أَوْ امْرَأَةٍ يَنْكِحُهَا فَهِجْرَتُهُ إِلَى مَا هَاجَرَ إِلَيْهِ</div>
+                                <div class="hadith-translation">"Actions are judged by intentions, and each person will have what they intended. So whoever emigrates for Allah and His Messenger, then his emigration is for Allah and His Messenger. And whoever emigrates to get something in the world or to marry a woman, his emigration is for whatever he emigrated for."</div>
+                                <div class="hadith-source">Sahih al-Bukhari 1 and Sahih Muslim 1907</div>
+                                <div class="hadith-significance">
+                                    <h4>Legal Principle:</h4>
+                                    <p>This hadith establishes the fundamental maxim of Islamic jurisprudence that intentions determine the validity of actions and their legal consequences.</p>
+                                    <h4>Applications:</h4>
+                                    <ul>
+                                        <li>Determination of criminality in criminal matters</li>
+                                        <li>Validity of contracts and business dealings</li>
+                                        <li>Classification of religious acts of worship</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="hadith-card">
+                                <div class="hadith-text">لاَ ضَرَرَ وَلاَ ضِرَارَ</div>
+                                <div class="hadith-translation">"There should be neither harm nor reciprocating harm."</div>
+                                <div class="hadith-source">Sunan Ibn Majah 2340</div>
+                                <div class="hadith-significance">
+                                    <h4>Legal Principle:</h4>
+                                    <p>This establishes the prohibition of causing harm or reciprocating harm, forming one of the most important legal maxims in Islamic jurisprudence.</p>
+                                    <h4>Applications:</h4>
+                                    <ul>
+                                        <li>Environmental protection regulations</li>
+                                        <li>Neighbor and property rights</li>
+                                        <li>Medical ethics and treatments</li>
+                                        <li>Business and consumer protection laws</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="hadith-card">
+                                <div class="hadith-text">الْبَيِّنَةُ عَلَى الْمُدَّعِي وَالْيَمِينُ عَلَى الْمُدَّعَى عَلَيْهِ</div>
+                                <div class="hadith-translation">"The burden of proof is on the claimant, and the oath is on the one who denies."</div>
+                                <div class="hadith-source">Sunan al-Tirmidhi 1341</div>
+                                <div class="hadith-significance">
+                                    <h4>Legal Principle:</h4>
+                                    <p>This hadith establishes fundamental principles of Islamic evidence law and procedural justice.</p>
+                                    <h4>Applications:</h4>
+                                    <ul>
+                                        <li>Civil dispute resolution</li>
+                                        <li>Criminal trial procedures</li>
+                                        <li>Commercial dispute resolution</li>
+                                        <li>The presumption of innocence until proven guilty</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="hadith-card">
+                                <div class="hadith-text">كُلُّ مُسْكِرٍ خَمْرٌ، وَكُلُّ خَمْرٍ حَرَامٌ</div>
+                                <div class="hadith-translation">"Every intoxicant is khamr (wine), and every khamr is forbidden."</div>
+                                <div class="hadith-source">Sahih Muslim 2003</div>
+                                <div class="hadith-significance">
+                                    <h4>Legal Principle:</h4>
+                                    <p>This hadith demonstrates analogical reasoning (qiyas) by extending the prohibition to all intoxicants, not just those known at the time.</p>
+                                    <h4>Applications:</h4>
+                                    <ul>
+                                        <li>Prohibition of modern drugs and substances</li>
+                                        <li>Regulation of medications containing alcohol</li>
+                                        <li>Food and beverage standards</li>
+                                        <li>Medical exceptions under necessity</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="hadith-card">
+                                <div class="hadith-text">الصُّلْحُ جَائِزٌ بَيْنَ الْمُسْلِمِينَ إِلَّا صُلْحًا حَرَّمَ حَلَالًا أَوْ أَحَلَّ حَرَامًا</div>
+                                <div class="hadith-translation">"Reconciliation is permissible among Muslims, except for a reconciliation that makes the lawful unlawful, or the unlawful lawful."</div>
+                                <div class="hadith-source">Sunan Abi Dawud 3594</div>
+                                <div class="hadith-significance">
+                                    <h4>Legal Principle:</h4>
+                                    <p>This establishes the freedom of contract principle and the permissibility of arbitration and settlements, within Sharia boundaries.</p>
+                                    <h4>Applications:</h4>
+                                    <ul>
+                                        <li>Alternative dispute resolution</li>
+                                        <li>Negotiated settlements in civil cases</li>
+                                        <li>Business contracts and agreements</li>
+                                        <li>Limits on what can be validly contracted</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                 </section>
             </section>
         </main>
-        <aside class="3d-panel">
+            <aside class="side-panel">
             <h3 class="holographic-text">Dictionary</h3>
             <ul>
-                <li>Major hadith collections</li>
-                <li>Historic fatwa</li>
+                    <li><strong>Fiqh</strong>: Islamic jurisprudence</li>
+                    <li><strong>Usul al-Fiqh</strong>: Principles of jurisprudence</li>
+                    <li><strong>Mujtahid</strong>: Scholar qualified to interpret</li>
+                    <li><strong>Ijma</strong>: Scholarly consensus</li>
+                    <li><strong>Qiyas</strong>: Analogical reasoning</li>
+                    <li><strong>Ijtihad</strong>: Independent reasoning</li>
+                    <li><strong>Fatwa</strong>: Non-binding legal opinion</li>
+                    <li><strong>Hadith</strong>: Prophet's sayings/actions</li>
+                    <li><strong>Maslaha</strong>: Public interest</li>
+                    <li><strong>Hudud</strong>: Fixed punishments</li>
+                </ul>
+                <h3>Major Hadith Collections</h3>
+                <ul>
+                    <li>Sahih al-Bukhari</li>
+                    <li>Sahih Muslim</li>
+                    <li>Sunan Abu Dawood</li>
+                    <li>Jami at-Tirmidhi</li>
+                    <li>Sunan an-Nasa'i</li>
+                    <li>Sunan ibn Majah</li>
+                </ul>
+                <h3>Historic Fatwa</h3>
+                <ul>
+                    <li>Ibn Taymiyyah on Mongol rulers (1303)</li>
+                    <li>Al-Shatibi on public interest (14th c.)</li>
+                    <li>Muhammad Abduh on photography (1900)</li>
             </ul>
             <h3>Student Tools</h3>
             <ul>
                 <li>Glossary of Islamic terms</li>
                 <li>Timeline of historic scholars</li>
                 <li>Comparative school overview</li>
+                    <li>Interactive Sharia decision tree</li>
+                    <li>Maqasid (objectives) framework</li>
             </ul>
         </aside>
         <footer class="glass-footer">
             <p>Educational Resource | Not Legal Advice</p>
+                <div class="footer-links">
+                    <a href="#overview">Home</a> | 
+                    <a href="#principles">Principles</a> | 
+                    <a href="#sources">Sources</a> | 
+                    <a href="#branches">Schools</a>
+                </div>
+                <p class="copyright">© 2023 Islamic Studies Resource</p>
         </footer>
     </div>
+    </div>
+    
+    <div class="back-to-top" id="backToTop">
+        <i>↑</i>
+    </div>
+    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Enhanced tab switching functionality
             const tabButtons = document.querySelectorAll('.tab-buttons button');
             const sections = document.querySelectorAll('.section');
+            let isScrolling = false;
             
             function showSection(targetId) {
                 sections.forEach(section => {
@@ -448,13 +1987,42 @@
             }
 
             tabButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    showSection(this.dataset.targetSection);
-                    // Smooth scroll to section
-                    document.getElementById(this.dataset.targetSection).scrollIntoView({ 
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    if (isScrolling) return;
+                    
+                    const targetId = this.dataset.targetSection;
+                    showSection(targetId);
+                    
+                    // Prevent multiple scroll attempts
+                    isScrolling = true;
+                    
+                    // Smooth scroll with requestAnimationFrame for better performance
+                    const targetSection = document.getElementById(targetId);
+                    const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset;
+                    const startPosition = window.pageYOffset;
+                    const distance = targetPosition - startPosition;
+                    const duration = 800; // ms
+                    let startTimestamp = null;
+                    
+                    function scrollAnimation(timestamp) {
+                        if (!startTimestamp) startTimestamp = timestamp;
+                        const elapsed = timestamp - startTimestamp;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const easeInOutCubic = progress < 0.5
+                            ? 4 * progress * progress * progress
+                            : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+                            
+                        window.scrollTo(0, startPosition + distance * easeInOutCubic);
+                        
+                        if (elapsed < duration) {
+                            window.requestAnimationFrame(scrollAnimation);
+                        } else {
+                            isScrolling = false;
+                        }
+                    }
+                    
+                    window.requestAnimationFrame(scrollAnimation);
                 });
             });
 
@@ -463,8 +2031,60 @@
                 const hash = window.location.hash.substring(1);
                 if (document.getElementById(hash)) {
                     showSection(hash);
+                    // Delay scrolling to ensure DOM is ready
+                    setTimeout(() => {
+                        document.getElementById(hash).scrollIntoView();
+                    }, 100);
                 }
+            } else {
+                showSection('overview');
             }
+            
+            // Optimized scroll handler with throttling
+            let lastScrollTop = 0;
+            let ticking = false;
+            
+            function handleScroll() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                // Only update when we need to
+                if (scrollTop > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+                
+                // Update active section based on scroll position
+                if (!isScrolling) {
+                    let currentSection = '';
+                    sections.forEach(section => {
+                        const sectionTop = section.offsetTop;
+                        const sectionHeight = section.offsetHeight;
+                        
+                        if (scrollTop >= sectionTop - 100 && scrollTop < sectionTop + sectionHeight - 100) {
+                            currentSection = section.id;
+                        }
+                    });
+                    
+                    if (currentSection) {
+                        tabButtons.forEach(btn => {
+                            btn.classList.toggle('active', btn.dataset.targetSection === currentSection);
+                        });
+                    }
+                }
+                
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+                ticking = false;
+            }
+            
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    window.requestAnimationFrame(function() {
+                        handleScroll();
+                    });
+                    ticking = true;
+                }
+            }, { passive: true });
 
             // Enhanced accordion functionality
             const accordionButtons = document.querySelectorAll('.accordion-btn');
@@ -474,14 +2094,20 @@
                     const panel = document.getElementById(panelId);
                     const isExpanded = this.getAttribute('aria-expanded') === 'true';
                     
-                    panel.hidden = isExpanded;
                     this.setAttribute('aria-expanded', !isExpanded);
                     
-                    // Smooth height transition
                     if (!isExpanded) {
+                        panel.hidden = false;
+                        // Force reflow before animating
+                        panel.offsetHeight;
+                        requestAnimationFrame(() => {
                         panel.style.maxHeight = panel.scrollHeight + 'px';
+                        });
                     } else {
                         panel.style.maxHeight = '0';
+                        setTimeout(() => {
+                            panel.hidden = true;
+                        }, 300);
                     }
                 });
                 
@@ -490,11 +2116,101 @@
                 const panel = document.getElementById(panelId);
                 panel.style.transition = 'max-height 0.3s ease-out';
                 panel.style.overflow = 'hidden';
+                panel.style.maxHeight = '0';
+            });
+            
+            // Back to top button functionality with improved animation
+            const backToTopButton = document.getElementById('backToTop');
+            
+            backToTopButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (isScrolling) return;
+                
+                isScrolling = true;
+                
+                const startPosition = window.pageYOffset;
+                const duration = 600; // ms
+                let startTimestamp = null;
+                
+                function scrollToTop(timestamp) {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const elapsed = timestamp - startTimestamp;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const easing = 1 - Math.pow(1 - progress, 3); // Cubic ease-out
+                    
+                    window.scrollTo(0, startPosition * (1 - easing));
+                    
+                    if (elapsed < duration) {
+                        window.requestAnimationFrame(scrollToTop);
+                    } else {
+                        isScrolling = false;
+                    }
+                }
+                
+                window.requestAnimationFrame(scrollToTop);
+            });
+
+            // Optimize mouse effects with debounce for better performance
+            let mouseTimeout;
+            const cards = document.querySelectorAll('.glass-card, .pillar, .school, .source, .fat-card, .resource-card');
+            
+            function debounce(func, wait) {
+                return function(...args) {
+                    clearTimeout(mouseTimeout);
+                    mouseTimeout = setTimeout(() => func.apply(this, args), wait);
+                };
+            }
+            
+            const handleMouseMove = debounce(function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                this.style.setProperty('--mouse-x', `${x}px`);
+                this.style.setProperty('--mouse-y', `${y}px`);
+            }, 10);  // 10ms delay for performance
+            
+            cards.forEach(card => {
+                card.addEventListener('mousemove', handleMouseMove);
+                
+                // Force hardware acceleration
+                card.style.transform = 'translateZ(0)';
+                card.style.willChange = 'transform, box-shadow';
+            });
+            
+            // Cleanup event listeners when mouse leaves
+            cards.forEach(card => {
+                card.addEventListener('mouseleave', function() {
+                    clearTimeout(mouseTimeout);
+                    // Reset when out to avoid unnecessary repaints
+                    this.style.willChange = 'auto';
+                });
+                
+                card.addEventListener('mouseenter', function() {
+                    this.style.willChange = 'transform, box-shadow';
+                });
             });
 
             if(window.feather) {
                 feather.replace();
             }
+            
+            // Preload visible sections to ensure smooth scrolling
+            function preloadVisible() {
+                const viewportHeight = window.innerHeight;
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    // Preload images in sections that are near viewport
+                    if (rect.top < viewportHeight + 500 && rect.bottom > -500) {
+                        section.classList.add('preloaded');
+                    }
+                });
+            }
+            
+            // Initial preload
+            preloadVisible();
+            // Preload during scrolling
+            window.addEventListener('scroll', debounce(preloadVisible, 100), { passive: true });
         });
     </script>
 </body>
