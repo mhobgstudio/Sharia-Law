@@ -1,0 +1,501 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Islamic Sharia Law</title>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Oxan:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Amiri', serif;
+            color: #fff;
+            line-height: 1.6;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        h1, h2, h3 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3), 
+                        0 0 8px rgba(255,204,0,0.3);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(to right, #fff, #fc0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            border-bottom: 2px solid rgba(255,204,0,0.5);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            color: #fc0;
+        }
+        
+        p, li {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        li:before {
+            content: "•";
+            color: #fc0;
+            position: absolute;
+            left: 0;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+        
+        a {
+            color: #fc0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: #fff;
+            text-shadow: 0 0 8px rgba(255,204,0,0.8);
+        }
+        
+        .gl-btn, .glow-btn {
+            transition: all 0.3s ease;
+            transform: translateZ(0);
+        }
+        .gl-btn:hover, .glow-btn:hover {
+            transform: scale(1.05) translateZ(0);
+            box-shadow: 0 0 15px rgba(255, 204, 0, 0.6);
+        }
+        .gl-btn:active, .glow-btn:active {
+            transform: scale(0.98) translateZ(0);
+        }
+        .glow-btn.active {
+            background: linear-gradient(135deg, #fc0 0%, #ff9a00 100%);
+            color: #000;
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.8);
+        }
+        .accordion-btn {
+            transition: all 0.3s ease;
+        }
+        .accordion-btn[aria-expanded="true"] {
+            background: rgba(0, 0, 80, 0.7);
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        .accordion-btn:hover {
+            background: rgba(0, 0, 80, 0.5);
+        }
+        
+        /* Add new styles for improved UI enhancement */
+        .glass-container {
+            background: linear-gradient(to bottom, #0a0a2a, #0f0245);
+            backdrop-filter: blur(10px);
+            border-radius: 0.5em;
+            box-shadow: 0 8px 15px rgba(255, 60, 0, 0.6);
+        }
+
+        .header {
+            flex-direction: no-wrap;
+            align-items: justify;
+            justify-content: space-around;
+        }
+
+        /* More vibrant tab buttons */
+        .glow-btn {
+            background-color: #ffbe8;
+            box-shadow: 0 6px 8px rgba(255, 2, 0, 0.6);
+        }
+
+        .glow-btn.active {
+            animation: glow-pulse 2s infinite;
+        }
+
+        @keyframes glow-pulse {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* 3D effects for cards */
+        .glass-card {
+            transform: perspective(1000px) rotateY(0deg);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.5s, box-shadow 0.5s;
+            padding: 1.5rem;
+            color: #fff;
+            background: rgba(0,0,30,0.7) !important;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Modern fonts and typography */
+        
+        .neon-text {
+            animation: neon-glow 2s infinite alternate;
+        }
+        
+        @keyframes neon-glow {
+            from {
+                text-shadow: 0 0 5px #fff,
+                            0 0 10px #fff,
+                            0 0 15px #fff,
+                            0 0 20px #fc0;
+            }
+            to {
+                text-shadow: 0 0 10px #fff,
+                            0 0 20px #fff,
+                            0 0 30px #fff,
+                            0 0 40px #fc0,
+                            0 0 70px #fc0;
+            }
+        }
+        
+        /* Improve table readability */
+        .application-table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        .application-table th, 
+        .application-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,204,0,0.3);
+        }
+        
+        .application-table th {
+            background: rgba(255,204,0,0.2);
+            color: #fc0;
+        }
+        
+        .application-table tr:hover {
+            background: rgba(255,204,0,0.1);
+        }
+        
+        .pillar p, .source h3, .fat-card h3 {
+            text-shadow: 0 2px 3px rgba(0,0,0,0.5);
+        }
+        
+        .sources-container {
+            border: 1px solid #efff;
+        }
+    </style>
+</head>
+<body>
+    <div class="glass-container">
+        <header style="background-image: linear-gradient(150deg, #000051 0%, #1a1a5a 100%);" class="header">
+            <div class="logo-container">
+                <svg width="200" height="200" viewBox="0 0 200 200" class="logo glowing">
+                    <circle cx="100" cy="100" r="90" fill="rgba(255, 255, 255, 0.1)" />
+                    <path d="M100,30 L120,70 L160,70 L130,100 L150,150 L100,120 L50,150 L70,100 L40,70 L80,70 Z" fill="#fc0" />
+                    <text x="100" y="180" text-anchor="middle" fill="white" font-size="16">Islamic Sharia Law</text>
+                </svg>
+            </div>
+            <nav class="nav-glass">
+                <ul>
+                    <li class="tab-buttons">
+                        <button class="glow-btn active" data-target-section="overview">Core Concepts</button>
+                        <button class="gl-btn" data-target-section="principles">Principles</button>
+                        <button class="gl-btn" data-target-section="sources">Sources</button>
+                        <button class="gl-btn" data-target-section="branches">Schools</button>
+                        <button class="gl-btn" data-target-section="fatwa">Fatwa</button>
+                        <button class="gl-btn" data-target-section="resources">Resources</button>
+                    </li>
+                </ul>
+                <h1 class="neon-text">Understanding Sharia Law</h1>
+            </nav>
+        </header>
+        <main>
+            <section class="card-container">
+                <section id="overview" class="section glass-card active-section">
+                    <h2>What is Sharia Law?</h2>
+                    <div class="card">
+                        <p>Sharia is Islam’s legal framework for moral guidance and legal principles derived covering all aspects of life:</p>
+                        <ul>
+                            <li><strong>Worship</strong>: Prayer, fasting, zakat, pilgrimage</li>
+                            <li><strong>Personal Life</strong>: Food, dress, marriage, ethics</li>
+                            <li><strong>Social/Commerce</strong>: Business, inheritance, contracts, crimes</li>
+                        </ul>
+                        <p>interpreted by scholars in context (faqih, mujtahid) to adapt to varying circumstances.</p>
+                    </div>
+                </section>
+                <section id="principles" class="section glass-card">
+                    <h2>Maqasid al-Sharia (Higher Objectives)</h2>
+                    <div class="pillars-container">
+                        <div class="pillar">
+                            <div class="circle">1</div>
+                            <p>Protection of Faith</p>
+                        </div>
+                        <div class="pillar">
+                            <div class="circle">2</div>
+                            <h3>Protection of Life</h3>
+                            <p>Detailed rules on justice in capital cases and sanctity of life, including:</p>
+                        </div>
+                        <div class="pillar">
+                            <div class="circle">3</div>
+                            <p>Protection of Intellect</p>
+                        </div>
+                        <div class="pillar">
+                            <div class="circle">4</div>
+                            <p>Protection of Lineage</p>
+                        </div>
+                        <div class="pillar">
+                            <div class="circle">5</div>
+                            <p>Protection of Property</p>
+                        </div>
+                    </div>
+                </section>
+                <section id="sources" class="section glass-card">
+                    <h2>Primary & Secondary Sources</h2>
+                    <div class="sources-container">
+                        <div class="source">
+                            <svg width="100" height="100">
+                                <rect width="100" height="100" rx="10" fill="#036" />
+                                <text x="50" y="60" text-anchor="middle" fill="white">Quran</text>
+                            </svg>
+                            <h3>Quran</h3>
+                            <ul>
+                                <li>Exact words of God</li>
+                                <li>114 surahs in classical Arabic</li>
+                                <li>Legal verses (ayat) comprise 14% content</li>
+                            </ul>
+                        </div>
+                        <div class="source">
+                            <svg width="100" height="100">
+                                <rect width="100" height="100" rx="10" fill="#036" />
+                                <text x="50" y="60" text-anchor="middle" fill="white">Sunnah (Prophetic Tradition)</text>
+                            </svg>
+                            <h3>Sunnah</h3>
+                            <ul>
+                                <li>Authentic hadeeths compiled in collections</li>
+                                <li>Clarifies and details Qur'anic injunctions</li>
+                                <li>Includes actions, approvals, and inactions of the Prophet</li>
+                            </ul>
+                        </div>
+                        <div class="source">
+                            <svg width="100" height="100">
+                                <rect width="100" height="100" rx="10" fill="#036" />
+                                <text x="50" y="60" text-anchor="middle" fill="white">Ijma</text>
+                            </svg>
+                            <h3>Ijma (Scholarly) Consensus</h3>
+                            <p>Applications in:</p>
+                            <ul>
+                                <li>Contemporary medical ethics (bioethics, etc.)</li>
+                                <li>Financial transactions (Islamic banking rulings)</li>
+                                <li>New technological challenges</li>
+                            </ul>
+                        </div>
+                        <div class="source">
+                            <svg width="100" height="100">
+                                <rect width="100" height="100" rx="10" fill="#036" />
+                                <text x="50" y="60" text-anchor="middle" fill="white">Qiyas</text>
+                            </svg>
+                            <h3>Analogical Reasoning</h3>
+                            <ul>
+                                <li>Applies existing laws to new circumstances</li>
+                                <li>Derivation of similar causes (illah)</li>
+                                <li>Used in modern jurisprudence (fiqh muasar)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section id="branches" class="section glass-card">
+                    <h2>Madhhabs (Schools of Thought)</h2>
+                    <div class="schools-container">
+                        <div class="school">
+                            <svg width="100" height="100">
+                                <rect width="100" height="100" rx="10" fill="#036" />
+                                <text x="50" y="60" text-anchor="middle" fill="white">Hanafi</text>
+                            </svg>
+                        </div>
+                        <div class="school">
+                            <h3>Maliki School</h3>
+                            <p>Founded by Imam Malik ibn Anas (d.795)</p>
+                            <ul>
+                                <li>Dominant in North Africa</li>
+                                <li>Primacy given to Medinan practices</li>
+                                <li>Strong emphasis on public interest (maslaha)</li>
+                                <li>Employs (block evas) to prevent harm</li>
+                            </ul>
+                        </div>
+                        <!-- add more schools -->
+                    </div>
+                </section>
+                <section id="fatwa" class="section glass-card">
+                    <h2>Fatwa Councils</h2>
+                    <p>Official rulings by qualified scholars on contemporary issues:</p>
+                    <div class="fatwa-grid">
+                        <div class="fat-card">
+                            <h3>Medical Ethics</h3>
+                            <ul>
+                                <li>Organ donation and transplantation rulings</li>
+                                <li>Gender reassignment</li>
+                                <li>Reproductive technologies</li>
+                            </ul>
+                        </div>
+                        <div class="fat-card">
+                            <h3>Financial Matters</h3>
+                            <ul>
+                                <li>Cryptocurrency under Sharia</li>
+                                <li>Islamic insurance principles</li>
+                                <li>Halal standards of investing</li>
+                            </ul>
+                        </div>
+                        <div class="fat-card">
+                            <h3>Social Issues</h3>
+                            <ul>
+                                <li>Muslim-minority relations</li>
+                                <li>Interfaith dialogue</li>
+                                <li>Digital privacy rights</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section id="resources" class="section glass-card">
+                    <h2>Digital Resources</h2>
+                    <div class="resource-grid">
+                        <div class="resource-card">
+                            <h3>Islamic Jurisprudence Database</h3>
+                            <ul>
+                                <li><a href="https://islamqa.org/" target="_blank">Islamqa.org - Fatawa Database</a></li>
+                                <li><a href="http://seekersguidance.org/" target="_blank">Seeker's Guidance - Learning Resources</a></li>
+                            </ul>
+                        </div>
+                        <div class="resource-card">
+                            <h3>Research Guides</h3>
+                            <ul>
+                                <li><a href="http://pil.law.harvard.edu/source-portal" target="_blank">Harvard - Sharia Source</a></li>
+                                <li><a href="https://gdes.okcu.edu/samiclawh" target="_blank">OCU Islamic Law</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section id="misconceptions" class="section glass-card">
+                    <h2>Common Misconceptions</h2>
+                    <div class="accordion">
+                        <button class="accordion-btn" aria-controls="panel1" aria-expanded="false">Is Sharia only about punishment?</button>
+                        <div class="panel" id="panel1" hidden>
+                            <p>Sharia covers all aspects of life including charity, prayer, marriage, business ethics, inheritance and more. Criminal law is a small portion.</p>
+                        </div>
+                        <button class="accordion-btn" aria-controls="panel2" aria-expanded="false">Is Sharia incompatible with democracy?</button>
+                        <div class="panel" id="panel2" hidden>
+                            <p>Many Islamic scholars argue that core Sharia principles align with democratic values like justice, consultation and protection of rights.</p>
+                        </div>
+                    </div>
+                </section>
+                <section id="application" class="section glass-card">
+                    <table class="application-table">
+                        <tr>
+                            <th>Field</th>
+                            <th>Application</th>
+                            <th>Example</th>
+                        </tr>
+                        <tr>
+                            <td>Finance</td>
+                            <td>Prohibition of Interest</td>
+                            <td>Islamic banking models like mudarabah</td>
+                        </tr>
+                        <!-- existing rows in table format -->
+                    </table>
+                </section>
+            </section>
+        </main>
+        <aside class="3d-panel">
+            <h3 class="holographic-text">Dictionary</h3>
+            <ul>
+                <li>Major hadith collections</li>
+                <li>Historic fatwa</li>
+            </ul>
+            <h3>Student Tools</h3>
+            <ul>
+                <li>Glossary of Islamic terms</li>
+                <li>Timeline of historic scholars</li>
+                <li>Comparative school overview</li>
+            </ul>
+        </aside>
+        <footer class="glass-footer">
+            <p>Educational Resource | Not Legal Advice</p>
+        </footer>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Enhanced tab switching functionality
+            const tabButtons = document.querySelectorAll('.tab-buttons button');
+            const sections = document.querySelectorAll('.section');
+            
+            function showSection(targetId) {
+                sections.forEach(section => {
+                    section.classList.toggle('active-section', section.id === targetId);
+                });
+                tabButtons.forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.targetSection === targetId);
+                });
+            }
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    showSection(this.dataset.targetSection);
+                    // Smooth scroll to section
+                    document.getElementById(this.dataset.targetSection).scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                });
+            });
+
+            // Ensure first section is visible on load
+            if (window.location.hash) {
+                const hash = window.location.hash.substring(1);
+                if (document.getElementById(hash)) {
+                    showSection(hash);
+                }
+            }
+
+            // Enhanced accordion functionality
+            const accordionButtons = document.querySelectorAll('.accordion-btn');
+            accordionButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const panelId = this.getAttribute('aria-controls');
+                    const panel = document.getElementById(panelId);
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    
+                    panel.hidden = isExpanded;
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    
+                    // Smooth height transition
+                    if (!isExpanded) {
+                        panel.style.maxHeight = panel.scrollHeight + 'px';
+                    } else {
+                        panel.style.maxHeight = '0';
+                    }
+                });
+                
+                // Initialize accordion panels
+                const panelId = button.getAttribute('aria-controls');
+                const panel = document.getElementById(panelId);
+                panel.style.transition = 'max-height 0.3s ease-out';
+                panel.style.overflow = 'hidden';
+            });
+
+            if(window.feather) {
+                feather.replace();
+            }
+        });
+    </script>
+</body>
+</html>
