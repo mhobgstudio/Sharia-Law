@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
     <title>Understanding Islamic Sharia Law</title>
     <script src="https://unpkg.com/feather-icons"></script>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Oxan:wght@300;400;700&display=swap" rel="stylesheet">
@@ -12,9 +12,12 @@
             line-height: 1.6;
             text-shadow: 0 1px 3px rgba(0,0,0,0.5);
             margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #0a0a2a 0%, #1f1f5c 100%);
+            padding: 2rem;
+            background: linear-gradient(135deg, #050520 0%, #030340 100%);
             min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         
         /* Responsive container */
@@ -117,11 +120,26 @@
         .glass-container {
             background: linear-gradient(to bottom, #0a0a2a, #0f0245);
             backdrop-filter: blur(10px);
-            border-radius: 1rem;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border-radius: 1.5rem;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), 0 0 100px rgba(0, 0, 150, 0.2);
             overflow: hidden;
-            margin: 2rem auto;
-            max-width: 1400px;
+            max-width: 1200px;
+            width: 90%;
+            margin: 0 auto;
+            position: relative;
+            animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
         }
 
         .header {
@@ -1176,6 +1194,40 @@
                 margin-bottom: 2rem;
             }
         }
+
+        /* Pop-up card appearance */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+            background: linear-gradient(135deg, #050520 0%, #030340 100%);
+        }
+        
+        .glass-container {
+            max-width: 1200px;
+            width: 90%;
+            margin: 0 auto;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), 0 0 100px rgba(0, 0, 150, 0.2);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            position: relative;
+            animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Add a subtle glow effect */
+        .glass-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, transparent, rgba(255, 204, 0, 0.5), transparent);
+            z-index: 10;
+        }
     </style>
 </head>
 <body>
@@ -1579,55 +1631,55 @@
                             <td>Finance</td>
                                 <td>Prohibition of Interest (Riba)</td>
                                 <td>Islamic banking models like mudarabah (profit-sharing) and musharakah (partnership)</td>
-                                <td>Islamic-Sharia.org</td>
+                                <td><a href="https://www.islamic-sharia.org/islamic-banking/" target="_blank">Islamic-Sharia.org</a></td>
                         </tr>
                             <tr>
                                 <td>Family Law</td>
                                 <td>Marriage & Divorce</td>
                                 <td>Nikah contracts with clear terms, rights of both spouses, limited polygyny conditions</td>
-                                <td>SeekersGuidance.org</td>
+                                <td><a href="https://seekersguidance.org/answers/" target="_blank">SeekersGuidance.org</a></td>
                             </tr>
                             <tr>
                                 <td>Business</td>
                                 <td>Ethical Trade</td>
                                 <td>Prohibition of gharar (excessive uncertainty), fraud, and unfair advantage</td>
-                                <td>IslamQA.org</td>
+                                <td><a href="https://islamqa.org/" target="_blank">IslamQA.org</a></td>
                             </tr>
                             <tr>
                                 <td>Medical Ethics</td>
                                 <td>Sanctity of Life</td>
                                 <td>Rulings on euthanasia, organ donation, reproductive technologies</td>
-                                <td>Harvard ShariaSources</td>
+                                <td><a href="https://pil.law.harvard.edu/shariasource-portal/" target="_blank">Harvard ShariaSources</a></td>
                             </tr>
                             <tr>
                                 <td>Criminal Law</td>
                                 <td>Graduated Punishment</td>
                                 <td>Ta'zir (discretionary) penalties based on severity and circumstance</td>
-                                <td>OCU Islamic Law Guide</td>
+                                <td><a href="https://libguides.okcu.edu/islamiclaw" target="_blank">OCU Islamic Law Guide</a></td>
                             </tr>
                             <tr>
                                 <td>Technology</td>
                                 <td>Digital Ethics</td>
                                 <td>Privacy rights, data protection principles, digital contracts (smart contracts)</td>
-                                <td>Harvard Islamic Legal Studies</td>
+                                <td><a href="https://guides.library.harvard.edu/c.php?g=309902&p=2070121" target="_blank">Harvard Islamic Legal Studies</a></td>
                             </tr>
                             <tr>
                                 <td>Environmental Law</td>
                                 <td>Stewardship of Earth</td>
                                 <td>Conservation principles, prohibition of wasteful resource use (israf)</td>
-                                <td>SeekersGuidance.org</td>
+                                <td><a href="https://seekersguidance.org/courses/" target="_blank">SeekersGuidance.org</a></td>
                             </tr>
                             <tr>
                                 <td>Bioethics</td>
                                 <td>Medical Interventions</td>
                                 <td>Rulings on gene therapy, cloning, and end-of-life care</td>
-                                <td>IslamQA.org</td>
+                                <td><a href="https://islamqa.org/hanafi/" target="_blank">IslamQA.org</a></td>
                             </tr>
                             <tr>
                                 <td>Food & Nutrition</td>
                                 <td>Halal Standards</td>
                                 <td>Certification requirements, humane slaughter methods, ingredients verification</td>
-                                <td>Islamic-Sharia.org</td>
+                                <td><a href="https://www.islamic-sharia.org/khula/" target="_blank">Islamic-Sharia.org</a></td>
                             </tr>
                     </table>
                         
